@@ -7,7 +7,7 @@ imgTrump = cv2.cvtColor(imgTrump,cv2.COLOR_BGR2RGB)
 imgTest = face_recognition.load_image_file('ImageBasic/trump.jpg')
 imgTest = cv2.cvtColor(imgTrump,cv2.COLOR_BGR2RGB)
 
-faceLoc = face_recognition.face_loations(imgTrump)[0]
+faceLoc = face_recognition.face_locations(imgTrump)[0]
 encodeTrump = face_recognition.face_encodings(imgTrump)[0]
 cv2.rectangle(imgTrump,(faceLoc[3],faceLoc[0]),(faceLoc[1],faceLoc[2]),(255, 0, 255),2)
 
