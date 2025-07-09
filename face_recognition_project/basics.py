@@ -15,6 +15,9 @@ faceLocTest = face_recognition.face_locations(imgTest)[0]
 encodeTrumpTest = face_recognition.face_encodings(imgTest)[0]
 cv2.rectangle(imgTest,(faceLocTest[3],faceLocTest[0]),(faceLocTest[1],faceLocTest[2]),(255, 0, 255),2)
 
+results = face_recognition.compare_faces([encodeTrump].encodeTrumpTest)
+print(results)
+
 cv2.imshow('Donald Trump', imgTrump)
 cv2.imshow('Donald Test', imgTest)
 cv2.waitKey(0)
