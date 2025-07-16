@@ -21,7 +21,8 @@ results = face_recognition.compare_faces([encodeTrump],encodeTest)
 #lower the distance the better match is
 faceDis = face_recognition.face_distance([encodeTrump], encodeTest)
 print(results, faceDis)
-
+#put results on test image
+cv2.putText(imgTest, f'{results} {round(faceDis[0], 2)}', (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0,0,255), 2)
 cv2.imshow('Donald Trump', imgTrump)
 cv2.imshow('Donald Test', imgTest)
 cv2.waitKey(0)
