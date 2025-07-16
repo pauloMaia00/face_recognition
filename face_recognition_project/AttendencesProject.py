@@ -29,7 +29,25 @@ def find_encodings(images):
     return encode_list
 
 encodeListKnown = find_encodings(images)
-print(len(encodeListKnown))
+print("Encoding Complete!")
+
+#find the matches each our encodings.
+# this will come from the webcam
+cap = cv2.VideoCapture(0)
+
+while True:
+        success, img = cap.read()
+        imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
+        imgs = cv2.cvtColor(imgs,cv2.COLOR_BGR2RGB)
+        #encoding of our webcam
+        facesCurFrame = face_recognition.face_locations(imgS)
+        encodesCurFrame= face_recognition.face_encodings(imgs, facesCurFrame)
+
+        for encodeFace,faceLoc in zip(encodesCurFrame, facesCurFrame):
+            matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
+            faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
+            print(faceDis)
+
 
 # faceLoc = face_recognition.face_locations(imgTrump)[0]
 # encodeTrump = face_recognition.face_encodings(imgTrump)[0]
