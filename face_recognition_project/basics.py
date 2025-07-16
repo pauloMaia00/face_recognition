@@ -16,7 +16,10 @@ encodeTest = face_recognition.face_encodings(imgTest)[0]
 cv2.rectangle(imgTest,(faceLocTest[3],faceLocTest[0]),(faceLocTest[1],faceLocTest[2]),(255, 0, 255),2)
 
 results = face_recognition.compare_faces([encodeTrump],encodeTest)
-print(results)
+#find the distance
+#lower the distance the better match is
+faceDis = face_recognition.face_distance([encodeTrump], encodeTest)
+print(results, faceDis)
 
 cv2.imshow('Donald Trump', imgTrump)
 cv2.imshow('Donald Test', imgTest)
