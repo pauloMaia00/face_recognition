@@ -43,7 +43,7 @@ while True:
         facesCurFrame = face_recognition.face_locations(imgS)
         encodesCurFrame= face_recognition.face_encodings(imgS, facesCurFrame)
 
-        for encodeFace,faceLoc in zip(encodesCurFrame, facesCurFrame):
+        for encodeFace, faceLoc in zip(encodesCurFrame, facesCurFrame):
             matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
             faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
             print(faceDis)
@@ -53,6 +53,10 @@ while True:
             if matches[matchIndex]:
                  name = classNames[matchIndex].upper()
                  print(name)
+
+        cv2.imshow('Webcam', img)
+        cv2.waitKey(1)
+        
 
 
 # faceLoc = face_recognition.face_locations(imgTrump)[0]
