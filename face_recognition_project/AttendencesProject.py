@@ -39,7 +39,7 @@ def mark_attendence(name):
         if name not in nameList:
             now = datetime.now()
             dtString = now.strftime('%H:%M:%S')
-            f.wtitelines(f'\n{name}, {dtString}')
+            f.writelines(f'\n{name}, {dtString}')
             
 
 mark_attendence('trump')
