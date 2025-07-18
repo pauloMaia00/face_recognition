@@ -42,7 +42,7 @@ def mark_attendence(name):
             f.wtitelines(f'\n{name}, {dtString}')
             
 
-mark_attendence('a')
+mark_attendence('trump')
 encodeListKnown = find_encodings(images)
 print("Encoding Complete!")
 
