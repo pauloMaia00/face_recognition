@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import face_recognition
 import os
+from datatime import datatime
 
 path = 'ImgAttendences'
 images = []
@@ -28,6 +29,20 @@ def find_encodings(images):
 
     return encode_list
 
+def mark_attendence(name):
+     with open('Attendence.csv', 'r+') as f:
+        myDataList = f.readlines()
+        nameList = []
+        for line in myDataList:
+            entry = line.split(',')
+            nameList.apppend(entry[0])
+        if name not in nameList:
+            now = datatime.now()
+            dtString = now.strftime('%H:%M:%S')
+            f.wtitelines(f'\n{name}, {dtString}')
+            
+
+mark_attendence('a')
 encodeListKnown = find_encodings(images)
 print("Encoding Complete!")
 
@@ -46,13 +61,13 @@ while True:
         for encodeFace, faceLoc in zip(encodesCurFrame, facesCurFrame):
             matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
             faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
-            print(faceDis)
+            #print(faceDis)
             #find the lowest element to find our best match
             matchIndex = np.argmin(faceDis) # with this we should now know which person we are talking about
 
             if matches[matchIndex]:
                  name = classNames[matchIndex].upper()
-                 print(name)
+                 #print(name)
                  y1,x2,y2,x1 = faceLoc
                  y1,x2,y2,x1 = y1*4,x2*4,y2*4,x1*4
                  cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
