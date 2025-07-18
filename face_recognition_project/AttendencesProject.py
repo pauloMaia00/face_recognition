@@ -30,7 +30,7 @@ def find_encodings(images):
     return encode_list
 
 def mark_attendence(name):
-     with open('Attendence.csv', 'r+') as f:
+     with open('Attendences.csv', 'r+') as f:
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
