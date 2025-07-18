@@ -35,7 +35,7 @@ def mark_attendence(name):
         nameList = []
         for line in myDataList:
             entry = line.split(',')
-            nameList.apppend(entry[0])
+            nameList.append(entry[0])
         if name not in nameList:
             now = datetime.now()
             dtString = now.strftime('%H:%M:%S')
