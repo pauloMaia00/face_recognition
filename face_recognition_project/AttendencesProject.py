@@ -47,6 +47,12 @@ while True:
             matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
             faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
             print(faceDis)
+            #find the lowest element to find our best match
+            matchIndex = np.argmin(faceDis) # with this we should now know which person we are talking about
+
+            if matches[matchIndex]:
+                 name = classNames[matchIndex].upper()
+                 print(name)
 
 
 # faceLoc = face_recognition.face_locations(imgTrump)[0]
