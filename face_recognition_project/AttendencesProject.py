@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import face_recognition
 import os
-from datatime import datatime
+from datetime import datetime
 
 path = 'ImgAttendences'
 images = []
@@ -37,7 +37,7 @@ def mark_attendence(name):
             entry = line.split(',')
             nameList.apppend(entry[0])
         if name not in nameList:
-            now = datatime.now()
+            now = datetime.now()
             dtString = now.strftime('%H:%M:%S')
             f.wtitelines(f'\n{name}, {dtString}')
             
