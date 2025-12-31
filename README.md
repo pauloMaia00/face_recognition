@@ -67,11 +67,11 @@ This project addresses those issues by:
 
 ## System Workflow
 This system follows a structured pipeline to automate attendance using facial recognition:
-1.Image Collection - Images of known individuals are collected and stored in the dataset/ directory. Each person has a dedicated folder containing multiple facial images to improve recognition accuracy.
-2. Face Encoding - The system processes each image and extracts unique facial features (encodings). These encodings act as numerical representations of faces and are stored for comparison.
-3. Real-Time Face Detection - A live video stream is captured using a webcam. OpenCV detects faces in each frame.
-4. Face Recognition - Detected faces are encoded and compared against the stored encodings of known individuals.
-5. Attendance Recording - When a match is found, the system logs the person’s name along with the current date and time into an attendance file. Duplicate entries for the same session are prevented.
+- Image Collection - Images of known individuals are collected and stored in the dataset/ directory. Each person has a dedicated folder containing multiple facial images to improve recognition accuracy.
+- Face Encoding - The system processes each image and extracts unique facial features (encodings). These encodings act as numerical representations of faces and are stored for comparison.
+- Real-Time Face Detection - A live video stream is captured using a webcam. OpenCV detects faces in each frame.
+- Face Recognition - Detected faces are encoded and compared against the stored encodings of known individuals.
+- Attendance Recording - When a match is found, the system logs the person’s name along with the current date and time into an attendance file. Duplicate entries for the same session are prevented.
 
 ---
 
@@ -95,22 +95,6 @@ The required packages include:
 - numpy
 - pandas
 
-## Dataset Setup
-- Create a dataset/ directory.
-- Add a folder for each person (folder name = person’s name).
-- Place multiple face images inside each folder.
-
-Example:
-
-dataset/
-├── Alice/
-│   ├── img1.jpg
-│   └── img2.jpg
-└── Bob/
-    ├── img1.jpg
-    └── img2.jpg
-
----
 
 ## How to Run the Project
 Step 1: Train Face Encodings
@@ -128,11 +112,3 @@ Attendance will be automatically recorded in:
 
 `Attendances.csv`
 
-
-Each entry includes:
-
-Name
-
-Date
-
-Time
